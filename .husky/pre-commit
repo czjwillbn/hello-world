@@ -1,0 +1,6 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# npm test
+echo ----开始代码检测-----
+npx lint-staged

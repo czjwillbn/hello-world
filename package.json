@@ -6,13 +6,15 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "adds": "echo aaa"
+    "prepare": "husky install",
+    "test": "npm run lint"
   },
   "dependencies": {
     "core-js": "^3.6.5",
     "vue": "^3.0.0",
     "vue-router": "^4.0.0-0",
-    "vuex": "^4.0.0-0"
+    "vuex": "^4.0.0-0",
+    "yarn": "^1.22.18"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.11",
@@ -30,18 +32,12 @@
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^7.0.0",
     "husky": "^7.0.4",
-    "lint-staged": "^12.3.7"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "commit-msg": "echo $HUSKY_GIT_PARAMS"
-    }
+    "lint-staged": "^11.0.1"
   },
   "lint-staged": {
-    "src/**/*.{js,vue,json}": [
-      "eslint --ext .js",
-      "echo aaa"
-    ]
+    "src/**/*.vue": [
+      "eslint"
+    ],
+    "*.js": "eslint --cache --fix"
   }
 }
